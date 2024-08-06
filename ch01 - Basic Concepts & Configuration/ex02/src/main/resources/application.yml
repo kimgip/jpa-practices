@@ -1,0 +1,143 @@
+# spring configuration
+spring:
+  application:
+    name: ex02
+
+
+---
+# common configuration
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://192.168.66.4:3306/jpadb?charset=utf8
+    username: jpadb
+    password: jpadb
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n"
+  level:
+    root: INFO
+
+
+---
+# test01 configuration
+spring:
+  config:
+    activate:
+      on-profile: test01
+
+  jpa:
+    database: MySQL
+
+
+
+---
+# test02 configuration
+spring:
+  config:
+    activate:
+      on-profile: test02
+
+  jpa:
+    # database: MySQL
+    database-platform: org.hibernate.dialect.MariaDB106Dialect
+
+
+
+---
+# test03 configuration
+spring:
+  config:
+    activate:
+      on-profile: test03
+
+  jpa:
+    # database: MySQL
+    # database-platform: org.hibernate.dialect.MariaDB106Dialect
+    generate-ddl: true
+
+
+
+---
+# test04 configuration
+spring:
+  config:
+    activate:
+      on-profile: test04
+
+  jpa:
+    # database: MySQL
+    # database-platform: org.hibernate.dialect.MariaDB106Dialect
+    generate-ddl: true
+    show-sql: true
+
+
+---
+# test05 configuration
+spring:
+  config:
+    activate:
+      on-profile: test05
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDB106Dialect
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        hbm2ddl:
+          auto: create
+
+
+
+---
+# test06 configuration
+spring:
+  config:
+    activate:
+      on-profile: test06
+
+  jpa:
+    hibernate:
+      use-new-id-generator-mappings: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDB106Dialect
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        hbm2ddl:
+          auto: create
+
+
+
+---
+# test07 configuration
+spring:
+  config:
+    activate:
+      on-profile: test07
+
+  jpa:
+    open-in-view: false
+    defer-datasource-initialization: false
+    hibernate:
+      # ddl-auto: create
+      # use-new-id-generator-mappings: false
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDB106Dialect
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        hbm2ddl:
+          auto: create
+
+
