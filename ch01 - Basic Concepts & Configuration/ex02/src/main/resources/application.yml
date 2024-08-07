@@ -9,7 +9,7 @@ spring:
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://192.168.66.4:3306/jpadb?charset=utf8
+    url: jdbc:mariadb://192.168.0.192:3306/jpadb?charset=utf8
     username: jpadb
     password: jpadb
     hikari:
@@ -126,13 +126,13 @@ spring:
   jpa:
     open-in-view: false
     defer-datasource-initialization: false
-    hibernate:
+    hibernate: # spring boot에서 지원하는 hibernate
       # ddl-auto: create
       # use-new-id-generator-mappings: false
-      naming:
+      naming: # Entity의 이름과 물리 이름이 같은가요? default: No 데이터베이스는 소문자, _ 사용, 자바는 카멜 => Yes로 하고 싶으면? ch01 readme [참고]
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
     properties:
-      hibernate:
+      hibernate: # hibernate만의 설정
         dialect: org.hibernate.dialect.MariaDB106Dialect
         show_sql: true
         format_sql: true

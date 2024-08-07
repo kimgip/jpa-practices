@@ -24,7 +24,7 @@ public class PersistenceConfig03 {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
-        dataSource.setUrl("jdbc:mariadb://192.168.66.4:3306/jpadb?charset=utf8");
+        dataSource.setUrl("jdbc:mariadb://192.168.0.192:3306/jpadb?charset=utf8");
         dataSource.setUsername("jpadb");
         dataSource.setPassword("jpadb");
 

@@ -1,0 +1,33 @@
+# spring configuration
+spring:
+  application:
+    name: ex02
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://192.168.0.192:3306/jpadb?charset=utf8
+    username: jpadb
+    password: jpadb
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+
+  jpa:
+    open-in-view: false
+    defer-datasource-initialization: false
+    hibernate:
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDB106Dialect
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        hbm2ddl:
+          auto: create
+
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n"
+  level:
+    root: INFO
