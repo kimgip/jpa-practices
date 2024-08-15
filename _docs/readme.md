@@ -18,6 +18,20 @@
 
 
 ## ch04.Mapping II: 다양한 연관관계 Mapping 및 Repository 작성법
+#### 관계형 데이터베이스
+같은 결과
+
+    ... from A join B on ~
+    ... from B join A on ~
+
+#### jpa
+방향성을 가짐
+
+    A -> B
+    B -> A
+메인 엔티티 -> 탐색 당하는 엔티티<br>
+비즈니스와 연관됨 (도메인 중심)<br>
+
 #### 01. 단일(One) - 방명록
 #### 02. 다대일(ManyToOne) : 단방향(Unidirectional) : 게시판 \[Board -> User\]
 #### 03. 다대일(ManyToOne) : 양방향(Bidirectional) : 온라인북몰 \[Order &lt;-&gt; User\]
